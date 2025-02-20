@@ -1,0 +1,40 @@
+        .footer {
+          background: linear-gradient(135deg, rgb(251, 164, 157), rgb(0, 0, 134));
+          color: white;
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          height: 5rem;
+        }
+
+        .social-icons {
+          display: flex;
+          align-items: center;
+          padding: 8px;
+          gap: 16px;
+        }
+
+        .social-icons a {
+          display: inline-block;
+          color: white;
+          text-decoration: none;
+          transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+          opacity: 0.8;
+        }
+
+        .social-icons svg {
+          width: 30px;
+          height: 30px;
+          fill: currentColor;
+        }
+
+        .copyright {
+          text-align: left;
+          padding: 8px;
+          margin: 0;
+          font-size: 14px;
+        }

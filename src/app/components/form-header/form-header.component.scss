@@ -1,0 +1,31 @@
+.header {
+  background: linear-gradient(135deg, rgb(0, 0, 134), rgb(251, 164, 157));
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 97%;
+}
+
+.logo-container {
+  position: absolute;
+  left: 20px;
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
+}
+
+.title-container {
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+

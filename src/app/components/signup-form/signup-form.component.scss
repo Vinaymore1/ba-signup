@@ -1,0 +1,78 @@
+
+.signup-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0.5rem auto;
+  padding: 0 1rem;
+}
+
+.signup-card {
+  mat-card-header {
+    // margin-top: 1 rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+  }
+}
+.mat-horizontal-stepper-header-container{
+  margin-top: 2 rem;
+}
+
+// .form-row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+//   margin-top: 2 rem;
+//   margin-bottom: 1rem;
+//   align-items: center;  // Ensures vertical alignment
+//   justify-content: space-between; // Distributes space properly
+
+//   mat-form-field {
+//     flex: 1 1 calc(50% - 0.5rem); // Each field takes 50% width minus gap
+//     min-width: 250px;
+//   }
+// }
+
+
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.password-strength {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+
+  .strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
+
+::ng-deep {
+  .mat-step-header {
+    &.mat-step-header-ripple {
+      background-color: transparent;
+    }
+  }
+
+  .mat-horizontal-stepper-header-container {
+    margin-bottom: 2rem;
+  }
+}

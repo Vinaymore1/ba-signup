@@ -1,0 +1,227 @@
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <mat-card-header>
+      <!-- <mat-card-title></mat-card-title> -->
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="accountDetails">
+          <ng-template matStepLabel>Account Details</ng-template>
+          <form [formGroup]="accountDetails">
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email">
+                <mat-error>{{getErrorMessage('accountDetails.email')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName">
+                <mat-error>{{getErrorMessage('accountDetails.firstName')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+                <mat-error>{{getErrorMessage('accountDetails.lastName')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Employee ID</mat-label>
+                <input matInput formControlName="employeeId" placeholder="BAxxxx">
+                <mat-error>{{getErrorMessage('accountDetails.employeeId')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <mat-select formControlName="title">
+                  <mat-option *ngFor="let title of titles" [value]="title">
+                    {{title}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>{{getErrorMessage('accountDetails.title')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput formControlName="mobileNo" type="tel">
+                <mat-error>{{getErrorMessage('accountDetails.mobileNo')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="button-row">
+              <button mat-raised-button
+                      color="primary"
+                      matStepperNext
+                      type="button"
+                      [disabled]="accountDetails.invalid">
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="personalDetails">
+          <ng-template matStepLabel>Personal Details</ng-template>
+          <form [formGroup]="personalDetails">
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                  <mat-option value="other">Other</mat-option>
+                </mat-select>
+                <mat-error>{{getErrorMessage('personalDetails.gender')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Blood Group</mat-label>
+                <mat-select formControlName="bloodGroup">
+                  <mat-option *ngFor="let group of bloodGroups" [value]="group">
+                    {{group}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>{{getErrorMessage('personalDetails.bloodGroup')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>{{getErrorMessage('personalDetails.dob')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Place of Birth</mat-label>
+                <input matInput formControlName="placeOfBirth">
+                <mat-error>{{getErrorMessage('personalDetails.placeOfBirth')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact Name</mat-label>
+                <input matInput formControlName="emergencyContactName">
+                <mat-error>{{getErrorMessage('personalDetails.emergencyContactName')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact Number</mat-label>
+                <input matInput formControlName="emergencyContactNumber" type="tel">
+                <mat-error>{{getErrorMessage('personalDetails.emergencyContactNumber')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="button-row">
+              <button mat-button
+                      matStepperPrevious
+                      type="button">
+                Back
+              </button>
+              <button mat-raised-button
+                      color="primary"
+                      matStepperNext
+                      type="button"
+                      [disabled]="personalDetails.invalid">
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="organizationDetails">
+          <ng-template matStepLabel>Organization Details</ng-template>
+          <form [formGroup]="organizationDetails">
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Capability</mat-label>
+                <mat-select formControlName="capability">
+                  <mat-option *ngFor="let cap of capabilities" [value]="cap">
+                    {{cap}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>{{getErrorMessage('organizationDetails.capability')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Base Location</mat-label>
+                <mat-select formControlName="baseLocation">
+                  <mat-option *ngFor="let location of locations" [value]="location">
+                    {{location}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>{{getErrorMessage('organizationDetails.baseLocation')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Career Manager</mat-label>
+                <input matInput formControlName="careerManager">
+                <mat-error>{{getErrorMessage('organizationDetails.careerManager')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="button-row">
+              <button mat-button
+                      matStepperPrevious
+                      type="button">
+                Back
+              </button>
+              <button mat-raised-button
+                      color="primary"
+                      matStepperNext
+                      type="button"
+                      [disabled]="organizationDetails.invalid">
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="credentials">
+          <ng-template matStepLabel>Credentials</ng-template>
+          <form [formGroup]="credentials">
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error>{{getErrorMessage('credentials.password')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmPassword">
+                <mat-error>{{getErrorMessage('credentials.confirmPassword')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="password-strength" *ngIf="credentials.get('password')?.value">
+              <mat-progress-bar
+                mode="determinate"
+                [value]="passwordStrength"
+                [color]="getPasswordStrengthColor()">
+              </mat-progress-bar>
+              <small>Password Strength: {{passwordStrength}}%</small>
+            </div>
+
+            <div class="button-row">
+              <button mat-button
+                      matStepperPrevious
+                      type="button">
+                Back
+              </button>
+              <button mat-raised-button
+                      color="primary"
+                      type="submit"
+                      (click)="submitForm()"
+                      [disabled]="credentials.invalid">
+                Submit
+              </button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
